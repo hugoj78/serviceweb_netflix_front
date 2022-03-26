@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  sample:
+    container_name: sample
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - 3000:3000
+    networks:
+      - default
+      - compte
+      - poster
+    environment:
+      CHOKIDAR_USEPOLLING: true
+      REACT_APP_SERVICEWEB_NETFLIX_COMPTE: "http://0.0.0.0:8090"
+
+networks:
+  compte:
+    name: serviceweb_netflix_compte_default
+  poster:
+    name: serviceweb_netflix_poster_default
+  # media:
+  #   name: serviceweb_netflix_media_default
