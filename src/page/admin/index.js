@@ -28,7 +28,7 @@ return(
                         <a href='./admin/allUser'> 
                             <div key="user" className="relative">
                                 <dt>
-                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
                                     <LightningBoltIcon className="h-6 w-6" aria-hidden="true" />
                                 </div>
                                 <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Display All User</p>
@@ -80,10 +80,10 @@ return(
                     <div className="mt-10">
                     <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
                         
-                        <a href='./media/allMedia'> 
+                        <a href='./admin/allMedia'> 
                             <div key="media" className="relative">
                                 <dt>
-                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
                                     <LightningBoltIcon className="h-6 w-6" aria-hidden="true" />
                                 </div>
                                 <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Display All Media</p>
@@ -91,7 +91,7 @@ return(
                             </div>
                         </a>
 
-                        <a href='./media/addMedia'> 
+                        <a href='./admin/addMedia'> 
                             <div key="media" className="relative">
                             <dt>
                                 <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
@@ -136,10 +136,10 @@ return(
                     <div className="mt-10">
                     <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
                         
-                        <a href='./poster/allPoster'> 
+                        <a href='./admin/allPoster'> 
                             <div key="poster" className="relative">
                                 <dt>
-                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
                                     <LightningBoltIcon className="h-6 w-6" aria-hidden="true" />
                                 </div>
                                 <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Display All Poster</p>
@@ -147,7 +147,7 @@ return(
                             </div>
                         </a>
 
-                        <a href='./poster/addUser'> 
+                        <a href='./admin/addPoster'> 
                             <div key="poster" className="relative">
                             <dt>
                                 <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">

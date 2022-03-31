@@ -1,14 +1,13 @@
 import React, { useState, useEffect }  from 'react';
 import { ChevronLeftIcon } from '@heroicons/react/solid'
-const AllUser = () => {
+const AllMedia = () => {
 
 const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [users, setUsers] = useState([]);  
+    const [medias, setMedias] = useState([]);  
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_COMPTE + "/users", 
-        //fetch("http://0.0.0.0:8090" + "/users", 
+        fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_MEDIA + "/medias", 
                 {'Access-Control-Allow-Origin' : '*', 
                 'accept': 'application/json'
                 // 'method' : 'GET', 
@@ -21,7 +20,7 @@ const [error, setError] = useState(null);
             .then(
                 (data) => {
                     setIsLoaded(true);
-                    setUsers(data);
+                    setMedias(data);
                 },
                 (err) => {
                     console.log(err)
@@ -39,7 +38,7 @@ if (error) {
             <div>
                 <header className="bg-white shadow">
                     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        <h1 className="text-3xl font-bold text-gray-900">List of All User Page - Admin</h1>
+                        <h1 className="text-3xl font-bold text-gray-900">List of All Media Page - Admin</h1>
                     </div>
                 </header>
                 <main>
@@ -47,45 +46,53 @@ if (error) {
                         <a href='/admin' className="flex"> <ChevronLeftIcon className="h-6 w-6" aria-hidden="true" />  Return </a> 
                         <div className="py-12 bg-white">
                             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                {users.map(user => (
-                                    <div>
+                                {medias.map(media => (
+                                    <div key={media.id}>
                                         <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                                             <div className="px-4 py-5 sm:px-6">
                                                 <h3 className="text-lg leading-6 font-medium text-gray-900">User Information</h3>
-                                                <p className="mt-1 max-w-2xl text-sm text-gray-500">Personal details and application.</p>
+                                                <p className="mt-1 max-w-2xl text-sm text-gray-500">Media details and application.</p>
                                             </div>
                                             <div className="border-t border-gray-200">
                                                 <dl>
+                                                <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                    <dt className="text-sm font-medium text-gray-500">ID Media</dt>
+                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{media.id}</dd>
+                                                </div>
+                                                <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                    <dt className="text-sm font-medium text-gray-500">ID Poster</dt>
+                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{media.id_poster}</dd>
+                                                </div>
                                                 <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                                    <dt className="text-sm font-medium text-gray-500">User status</dt>
+                                                    <dt className="text-sm font-medium text-gray-500">Content</dt>
                                                     <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                                        {user.status === "ACTIF" ? <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-green-600 rounded-full">{user.status}</span> : ""}
-                                                        {user.status === "PASSIF" ? <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-yellow-600 rounded-full">{user.status}</span> : ""}
-                                                        {user.status === "SUSPENDU" ? <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">{user.status}</span> : ""}                                                    
+                                                        <div className="aspect-w-16 aspect-h-9">
+                                                            <iframe 
+                                                            title={media.title} 
+                                                            src={media.content.replace("watch?v=", "embed/")} 
+                                                            frameBorder="0" 
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                            allowFullScreen></iframe>
+                                                        </div>
                                                     </dd>
                                                 </div>
                                                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                                    <dt className="text-sm font-medium text-gray-500">Full name</dt>
-                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.name}</dd>
-                                                </div>
-                                                <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                                    <dt className="text-sm font-medium text-gray-500">Email address</dt>
-                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.email}</dd>
+                                                    <dt className="text-sm font-medium text-gray-500">Title</dt>
+                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{media.title}</dd>
                                                 </div>
                                                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                                    <dt className="text-sm font-medium text-gray-500">User adress</dt>
-                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.adress}</dd>
-                                                </div>
-                                                <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                                    <dt className="text-sm font-medium text-gray-500">User country</dt>
-                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{user.country}</dd>
+                                                    <dt className="text-sm font-medium text-gray-500">Kind</dt>
+                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{media.kind}</dd>
                                                 </div>
                                                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                                    <dt className="text-sm font-medium text-gray-500">User admin status</dt>
-                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                                        {user.admin ? "Yes" : "No"}
-                                                    </dd>
+                                                    <dt className="text-sm font-medium text-gray-500">Category</dt>
+                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{media.category}</dd>
                                                 </div>
+                                                <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                    <dt className="text-sm font-medium text-gray-500">Release Date</dt>
+                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{media.release_date}</dd>
+                                                </div>
+                                                
                                                 </dl>
                                             </div>
                                         </div>
@@ -103,4 +110,4 @@ if (error) {
 }
 
 
-export default AllUser;
+export default AllMedia;
