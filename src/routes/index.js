@@ -10,6 +10,7 @@ import User from '../page/user';
 
 import Admin from '../page/admin';
 import AllUser from '../page/admin/AllUser';
+import AddUser from '../page/admin/AddUser'
 
 const WebService = () => {
     return(
@@ -21,6 +22,7 @@ const WebService = () => {
 
                 <Route path='/admin' element={<Admin/>} />
                 <Route path='/admin/allUser' element={<AllUser/>} />
+                <Route path='/admin/addUser' element={<AddUser/>} />
                 <Route path="*" element={<Navigate replace to="/" />} />
             </Routes>
         </Router>
