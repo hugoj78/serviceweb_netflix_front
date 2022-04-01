@@ -234,6 +234,16 @@ return(
                                                     <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{media.id_poster}</dd>
                                                 </div>
                                                 <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                    <dt className="text-sm font-medium text-gray-500">Poster</dt>
+                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                                        <img
+                                                            src={media.poster}
+                                                            alt="poster"
+                                                            className="bg-gray-100 rounded-lg max-w-xs"
+                                                        />
+                                                    </dd>
+                                                </div>
+                                                <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                     <dt className="text-sm font-medium text-gray-500">Content</dt>
                                                     <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                                         <div className="aspect-w-16 aspect-h-9">
