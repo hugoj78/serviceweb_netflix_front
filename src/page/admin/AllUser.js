@@ -2,12 +2,13 @@ import React, { useState, useEffect }  from 'react';
 import { ChevronLeftIcon } from '@heroicons/react/solid'
 const AllUser = () => {
 
-const [error, setError] = useState(null);
+    const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [users, setUsers] = useState([]);  
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_COMPTE + "/users", 
+        //fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_COMPTE + "/users", 
+        fetch("http://0.0.0.0:8090/users", 
         //fetch("http://0.0.0.0:8090" + "/users", 
                 {'Access-Control-Allow-Origin' : '*', 
                 'accept': 'application/json'
