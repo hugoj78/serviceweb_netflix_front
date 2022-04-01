@@ -15,6 +15,7 @@ const AddMedia = () => {
             "category": e.target.category.value,
             "content": e.target.content.value,
             "release_date": e.target.releasedate.value,
+            "country": e.target.country.value,
             "id_poster": e.target.idposter.value
         };
 
@@ -91,15 +92,17 @@ return(
 
                             <div className="col-span-6 sm:col-span-4">
                             <label htmlFor="kind" className="block text-sm font-medium text-gray-700">
-                                Kind 
+                                Kind
                             </label>
-                            <input
-                                type="kind"
-                                name="kind"
+                            <select
                                 id="kind"
+                                name="kind"
                                 autoComplete="kind"
-                                className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                            />
+                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            >
+                                <option>film</option>
+                                <option>serie</option>
+                            </select>
                             </div>
 
                             <div className="col-span-6 sm:col-span-4">
@@ -126,6 +129,28 @@ return(
                                 autoComplete="content"
                                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
+                            </div>
+
+                            <div className="col-span-6 sm:col-span-4">
+                            <label htmlFor="country" className="block text-sm font-medium text-gray-700">
+                                Country
+                            </label>
+                            <select
+                                id="country"
+                                name="country"
+                                autoComplete="country"
+                                className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            >
+                                <option>United States</option>
+                                <option>Canada</option>
+                                <option>France</option>
+                                <option>Suede</option>
+                                <option>Norvege</option>
+                                <option>Espagne</option>
+                                <option>Portugal</option>
+                                <option>Maroc</option>
+                                <option>Allemagne</option>
+                            </select>
                             </div>
 
                             <div className="col-span-6 sm:col-span-4">
