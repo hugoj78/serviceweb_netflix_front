@@ -10,10 +10,6 @@ const [error, setError] = useState(null);
         fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_MEDIA + "/medias", 
                 {'Access-Control-Allow-Origin' : '*', 
                 'accept': 'application/json'
-                // 'method' : 'GET', 
-                // 'headers': {
-                //     'Content-Type': 'application/json'
-                //     }
                 }
             )
             .then(res => res.json())

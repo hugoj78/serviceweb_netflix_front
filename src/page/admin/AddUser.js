@@ -27,13 +27,11 @@ const AddUser = () => {
         };
         
         fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_COMPTE + "/users", 
-        //fetch("http://0.0.0.0:8090" + "/users", 
         requestOptions)
             .then(res => res.json())
             .then(
                 (data) => {
                     console.log(data)
-                    //<Navigate to="/admin" replace />
                     navigate("/admin")
                 },
                 (err) => {

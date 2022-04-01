@@ -7,15 +7,9 @@ const AllUser = () => {
     const [users, setUsers] = useState([]);  
 
     useEffect(() => {
-        //fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_COMPTE + "/users", 
-        fetch("http://0.0.0.0:8090/users", 
-        //fetch("http://0.0.0.0:8090" + "/users", 
+        fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_COMPTE + "/users", 
                 {'Access-Control-Allow-Origin' : '*', 
                 'accept': 'application/json'
-                // 'method' : 'GET', 
-                // 'headers': {
-                //     'Content-Type': 'application/json'
-                //     }
                 }
             )
             .then(res => res.json())
