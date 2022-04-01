@@ -15,6 +15,8 @@ const AddMedia = () => {
             "category": e.target.category.value,
             "content": e.target.content.value,
             "release_date": e.target.releasedate.value,
+            "description": e.target.description.value,
+            "status": "ACTIVED",
             "country": e.target.country.value,
             "id_poster": e.target.idposter.value
         };
@@ -86,6 +88,19 @@ return(
                                 name="title"
                                 id="title"
                                 autoComplete="title"
+                                className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            />
+                            </div>
+
+                            <div className="col-span-6 sm:col-span-4">
+                            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+                                Description
+                            </label>
+                            <input
+                                type="text"
+                                name="description"
+                                id="description"
+                                autoComplete="description"
                                 className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
                             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { LightningBoltIcon } from '@heroicons/react/outline'
-import { ChevronLeftIcon, PlusIcon, RefreshIcon, XIcon } from '@heroicons/react/solid'
+import { ChevronLeftIcon, PlusIcon, RefreshIcon, XIcon, DocumentSearchIcon } from '@heroicons/react/solid'
 
 const Admin = () => {
 return(
@@ -49,13 +49,15 @@ return(
 
                         <div key="user" className="relative">
                             <dt>
-                            <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
+                            <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-gray-500 text-white">
                                 <RefreshIcon className="h-6 w-6" aria-hidden="true" />
                             </div>
                             <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Update User</p>
                             </dt>
                         </div>
 
+                        
+                        <a href='./admin/deleteUser'> 
                         <div key="user" className="relative">
                         <dt>
                             <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
@@ -64,6 +66,7 @@ return(
                             <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Delete User</p>
                             </dt>
                         </div>
+                        </a>
 
                     </dl>
                     </div>
@@ -101,16 +104,19 @@ return(
                                 </dt>
                             </div>
                         </a>
-
+                        
+                        <a href='./admin/updateMediaDescription'> 
                         <div key="media" className="relative">
                             <dt>
-                            <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
+                            <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-yellow-500 text-white">
                                 <RefreshIcon className="h-6 w-6" aria-hidden="true" />
                             </div>
-                            <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Update Media</p>
+                            <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Update Media Description</p>
                             </dt>
                         </div>
+                        </a>
 
+                        <a href='./admin/deleteMedia'> 
                         <div key="media" className="relative">
                         <dt>
                             <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
@@ -119,6 +125,7 @@ return(
                             <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Delete Media</p>
                             </dt>
                         </div>
+                        </a>
 
                     </dl>
                     </div>
@@ -158,26 +165,28 @@ return(
                             </div>
                         </a>
 
-
+                        
+                        <a href='./admin/updatePoster'> 
                         <div key="poster" className="relative">
                             <dt>
-                            <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
+                            <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-yellow-500 text-white">
                                 <RefreshIcon className="h-6 w-6" aria-hidden="true" />
                             </div>
                             <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Update Poster</p>
                             </dt>
                         </div>
+                        </a>
 
-
-
+                        <a href='./admin/showPosterByMoment'> 
                         <div key="poster" className="relative">
                         <dt>
-                            <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
-                                <XIcon className="h-6 w-6" aria-hidden="true" />
+                            <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-pink-500 text-white">
+                                <DocumentSearchIcon className="h-6 w-6" aria-hidden="true" />
                             </div>
-                            <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Delete Poster</p>
+                            <p className="ml-16 text-lg leading-6 font-medium text-gray-900">Show Poster By Moment</p>
                             </dt>
                         </div>
+                        </a>
 
 
                     </dl>

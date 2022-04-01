@@ -55,8 +55,7 @@ const User = () => {
                 headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*' }
             };
             
-            //fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_MEDIA + "/gestion/{selected.id}", 
-            fetch(`http://0.0.0.0:8092/gestion/${selected.id}/${category}/${moment}/${kind}`,
+            fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_MEDIA + `/gestion/${selected.id}/${category}/${moment}/${kind}`, 
             requestOptions)
                 .then(res => res.json())
                 .then(
@@ -259,6 +258,10 @@ return(
                                                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                     <dt className="text-sm font-medium text-gray-500">Title</dt>
                                                     <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{media.title}</dd>
+                                                </div>
+                                                <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                                    <dt className="text-sm font-medium text-gray-500">Description</dt>
+                                                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{media.description}</dd>
                                                 </div>
                                                 <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                     <dt className="text-sm font-medium text-gray-500">Kind</dt>

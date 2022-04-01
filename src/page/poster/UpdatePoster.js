@@ -1,14 +1,14 @@
-import * as React from "react";
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeftIcon } from '@heroicons/react/solid'
 
-const AddPoster = () => {
+const UpdatePoster = () => {
 
     let navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
-     
+
         let credentials = {
             "id_media": e.target.idmedia.value,
             "morning_poster": e.target.morningposter.value,
@@ -17,19 +17,21 @@ const AddPoster = () => {
         };
 
         const requestOptions = {
-            method: 'POST',
+            method: 'PUT',
             mode: 'cors',
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*' },
             body: JSON.stringify(credentials)
         };
         
-        fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_POSTER + "/posters", 
+        fetch(process.env.REACT_APP_SERVICEWEB_NETFLIX_POSTER + `/posters/${e.target.idposter.value}`, 
         requestOptions)
             .then(res => res.json())
             .then(
                 (data) => {
                     console.log(data)
-                    navigate("/admin")
+                    if(data != null) {
+                        navigate("/admin")
+                    }
                 },
                 (err) => {
                     console.log(err)
@@ -61,7 +63,20 @@ return(
                     <div className="shadow overflow-hidden sm:rounded-md">
                         <div className="px-4 py-5 bg-white sm:p-6">
                         <div className="grid grid-cols-6 gap-6">
-                            <div className="col-span-6 sm:col-span-3">
+                            <div className="col-span-6 sm:col-span-4">
+                            <label htmlFor="idposter" className="block text-sm font-medium text-gray-700">
+                                ID Poster
+                            </label>
+                            <input
+                                type="text"
+                                name="idposter"
+                                id="idposter"
+                                autoComplete="given-name"
+                                className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            />
+                            </div>
+
+                            <div className="col-span-6 sm:col-span-4">
                             <label htmlFor="idmedia" className="block text-sm font-medium text-gray-700">
                                 ID Media
                             </label>
@@ -119,7 +134,7 @@ return(
                         <button
                             type="submit"
                             className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Save
+                            Update
                         </button>
                         </div>
                     </div>
@@ -133,4 +148,4 @@ return(
         </div>
     );
 }
-export default AddPoster;
+export default UpdatePoster;
